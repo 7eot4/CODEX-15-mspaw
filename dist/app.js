@@ -5,6 +5,22 @@ const estimateFields = ['type', 'material', 'finish', 'installation', 'length', 
 const priceBox = document.querySelector('#price');
 const priceNote = document.querySelector('#price-note');
 let estimateSequence = 0, estimateTimer, estimateController, latestEstimate = null;
+const runtime = fetch('./runtime.json').then(response => {
+  if (!response.ok) throw Error('Nie wczytano konfiguracji podglądu.');
+  return response.json();
+}).then(async settings => {
+  if (settings.mode === 'pages-demo') {
+    const response = await fetch('./demo-pricing.json');
+    if (!response.ok) throw Error('Nie wczytano cennika demo.');
+    settings.pricing = await response.json();
+    document.querySelector('.preview').textContent = 'PUBLICZNY PODGLĄD DEMO · fikcyjne ceny i kontakt · formularz nie wysyła danych';
+    document.querySelector('.local-note').textContent = 'To demonstracja strony. Kalkulator działa w przeglądarce. Formularz symuluje zgłoszenie; nie wysyła danych ani załączników do firmy.';
+    form.querySelector('[type=submit]').textContent = 'Sprawdź zapytanie demonstracyjne ↗';
+    form.querySelector('.check').lastChild.textContent = 'Rozumiem, że jest to demonstracja. Zapytanie i załączniki nie zostaną wysłane do firmy.';
+  }
+  return settings;
+});
+runtime.catch(() => {});
 function estimateParameters() {
   const values = parameters();
   return Object.fromEntries(estimateFields.map(key => [key, values[key]]));
@@ -21,10 +37,15 @@ function updateEstimate() {
     estimateController = controller;
     const timeout = setTimeout(() => controller.abort(), 8000);
     try {
-      const response = await fetch('/api/estimate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values), signal: controller.signal });
-      const result = await response.json();
+      const settings = await runtime;
+      let result;
+      if (settings.mode === 'pages-demo') result = MspawDemo.calculate(values, settings.pricing, settings.pricingRevision);
+      else {
+        const response = await fetch('/api/estimate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values), signal: controller.signal });
+        result = await response.json();
+        if (!response.ok) throw Error(result.error || 'Nieprawidłowe parametry.');
+      }
       if (sequence !== estimateSequence) return;
-      if (!response.ok) throw Error(result.error || 'Nieprawidłowe parametry.');
       latestEstimate = result;
       priceBox.textContent = result.status === 'estimated' ? `${result.demo ? 'Przykład: ' : ''}${result.min.toLocaleString('pl-PL')}–${result.max.toLocaleString('pl-PL')} zł brutto` : 'Wycena indywidualna';
       priceNote.textContent = result.message + (result.scope ? ` Zakres: ${result.scope}` : '');
@@ -67,6 +88,11 @@ form.addEventListener('submit', async event => {
   document.querySelector('#load-demo').disabled = true;
   button.disabled = true; statusBox.textContent = 'Zapisywanie zapytania lokalnie…';
   try {
+    const settings = await runtime;
+    if (settings.mode === 'pages-demo') {
+      statusBox.textContent = 'Demonstracja zakończona: zapytanie jest gotowe do pobrania. Nie wysłano ani nie zapisano danych i załączników. Użyj przycisku „Pobierz treść zapytania”.';
+      return;
+    }
     const attachments = await Promise.all(files.map(file => new Promise((resolve,reject) => {
       const reader = new FileReader(); reader.onerror = reject; reader.onload = () => resolve({ name: file.name, data: reader.result.split(',')[1] }); reader.readAsDataURL(file);
     })));

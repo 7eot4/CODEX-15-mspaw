@@ -1,5 +1,9 @@
 # M-SPAW — Maciej Kowalczyk, Niedźwiedź
 
+Publiczny podgląd: https://7eot4.github.io/CODEX-15-mspaw/
+
+Repozytorium: https://github.com/7eot4/CODEX-15-mspaw . Gałąź `main`; po aktualizacji GitHub Actions uruchamia testy i publikuje demonstrację. Podgląd zawiera kalkulator z fikcyjnymi stawkami, wczytanie przykładu i pobranie opisu. Formularz na Pages symuluje zgłoszenie: nie zapisuje ani nie wysyła danych i załączników. Pełny lokalny zapis pozostaje dostępny przez `START.cmd`.
+
 Lokalna wersja strony firmy spawalniczej. Cel: klient przekazuje komplet parametrów potrzebnych do oferty, a dla standardowych konstrukcji otrzymuje orientacyjny koszt po zatwierdzeniu cennika wykonawcy.
 
 ## Uruchomienie
@@ -20,7 +24,7 @@ Widok zapisuje się w `.local/inbox/index.html`, a kopie załączników w `.loca
 - Można pobrać opis zapytania jako TXT. Załączniki trzeba wtedy przekazać osobno. Pobranie nie oznacza wysłania.
 - Na prośbę użytkownika włączono demonstracyjny cennik: `mode: demo`, `demoEnabled: true`, `approved: false`. Są to fikcyjne ceny, nie zatwierdzona oferta firmy. W formularzu przycisk „Wczytaj przykład demonstracyjny” uzupełnia fikcyjne dane klienta i balustradę 6,5 × 1,1 m; wynik to 4700–6330 PLN brutto (wyłącznie przykład). Dane kontaktowe do oceny układu: `000 000 000`, `mspaw@example.com`; nie uruchamiają połączenia ani wysyłki. Nie dodano fikcyjnych opinii, certyfikatów ani zdjęć cudzych realizacji.
 - Dane potwierdzone przez użytkownika: Maciej Kowalczyk, Niedźwiedź. Instagram i Google pochodzą od użytkownika. Dokładny zakres usług i materiałów jest propozycją do potwierdzenia.
-- Strona nieopublikowana, brak zewnętrznego repozytorium. `noindex` obowiązuje dla podglądu.
+- Publikacja dotyczy demonstracji na GitHub Pages, nie uruchomienia obsługi rzeczywistych klientów. `noindex` obowiązuje dla podglądu; publiczny link nie jest jednak kontrolą dostępu.
 
 ## Konfiguracja wyceny
 
