@@ -18,15 +18,17 @@ Otwórz `START.cmd` (wymaga dostępnego Pythona 3.11+). Podgląd: http://127.0.0
 
 ## Konfiguracja wyceny
 
-Zatwierdzenie stawek wymaga danych od Macieja. Struktura: `rates[rodzaj][material][wykonczenie][montaz]`. Każdy końcowy obiekt ma `min`, `max` (PLN brutto / m), `fixed` (stała kwota PLN brutto), `minHeight`, `maxHeight` (metry). Dozwolone klucze odpowiadają wartościom formularza. Następnie `approved: true`. Bez dokładnie dopasowanego wariantu nadal obowiązuje wycena indywidualna. Dotyczy tylko balustrad i ogrodzeń; naprawy i konstrukcje nietypowe wymagają oceny. Transport nie jest automatycznie liczony. Wynik to długość × stawka + kwota stała, zaokrąglony do 10 PLN. Wycena w przeglądarce jest informacyjna i nie trafia do bazy jako wiążąca oferta. Przed uruchomieniem produkcyjnym trzeba przenieść autorytatywne liczenie na serwer i ustalić wszystkie założenia: przekroje, wypełnienie, tolerancje, montaż, transport i podatki.
+Zatwierdzenie stawek wymaga danych od Macieja. Struktura: `rates[rodzaj][material][wykonczenie][montaz]`. Każdy końcowy obiekt ma `min`, `max` (PLN brutto / m), `fixed` (stała kwota PLN brutto), `minHeight`, `maxHeight`, `minLength`, `maxLength` (zakresy wymiarów w metrach) oraz `scope` (opis założeń, minimum 15 znaków: m.in. przekroje, wypełnienie, zakres montażu). Dozwolone klucze odpowiadają wartościom formularza. Następnie `approved: true` (wartość logiczna). Bez dokładnie dopasowanego wariantu nadal obowiązuje wycena indywidualna. Dotyczy tylko balustrad i ogrodzeń; naprawy i konstrukcje nietypowe wymagają oceny. Transport nie jest automatycznie liczony. Wynik to długość × stawka + kwota stała, zaokrąglony do 10 PLN; połowa kroku zaokrąglana jest w górę.
+
+Wycena jest liczona na serwerze przez `POST /api/estimate`. Przeglądarka przesyła tylko parametry konstrukcji, bez danych kontaktowych. Przy zapisie zapytania serwer ponownie liczy wynik z bieżącego cennika, ignoruje cenę dostarczoną przez klienta i zachowuje wynik, parametry, opis zakresu oraz identyfikator wersji cennika w rekordzie zapytania. Wynik jest szacunkiem, nie ofertą wiążącą. Wadliwy, niedostępny lub niezatwierdzony cennik nie generuje ceny. Zmiana parametrów usuwa poprzedni wynik do czasu otrzymania nowego; spóźnione odpowiedzi są ignorowane. Cennik produkcyjny pozostaje pusty; syntetyczne ceny występują wyłącznie w testach.
 
 ## Weryfikacja
 
-`python -m unittest discover -s tests -v` — zapis zapytania z załącznikiem, odczyt bazy, walidacja pól, dat i wymiarów, odrzucanie niewłaściwych plików.
+`python -m unittest discover -s tests -v` — zapis zapytania z załącznikiem, odczyt bazy, walidacja pól, dat i wymiarów, odrzucanie niewłaściwych plików; obliczenia i zaokrąglenia, zakresy cennika, niezatwierdzone i wadliwe reguły. Test HTTP uruchamia serwer na losowym lokalnym porcie i potwierdza, że zapisana wycena ignoruje cenę podmienioną w zapytaniu klienta. Dane testowe i cennik powstają w katalogach tymczasowych.
 
 `node --check dist/app.js` — składnia JavaScript.
 
-Weryfikacja HTTP: strona, pliki CSS/JS, cennik i odpowiedzi walidacji API. Kontrola wizualna w przeglądarce pozostaje do wykonania: dostępny konektor Chrome nie pozwolił otworzyć karty, a przeglądarka w aplikacji jest niedostępna. Układ telefonu nie jest jeszcze potwierdzony wizualnie.
+Weryfikacja HTTP: strona, pliki CSS/JS i odpowiedzi walidacji API; po przeniesieniu obliczeń także wycena i jej zapis w bazie przez rzeczywiste żądania HTTP w teście integracyjnym. Kontrola wizualna w przeglądarce pozostaje do wykonania: dostępny konektor Chrome nie pozwolił otworzyć karty, a przeglądarka w aplikacji jest niedostępna. Układ telefonu nie jest jeszcze potwierdzony wizualnie.
 
 ## Dalej
 

@@ -9,6 +9,7 @@ from contextlib import closing
 from datetime import date, datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from pricing import parameters, estimate
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / '.local'
@@ -35,23 +36,7 @@ def validate(payload):
                 raise ValueError()
         except ValueError:
             raise ValueError('Podaj termin dzisiejszy lub przyszły.')
-    enums = {'type': ['balustrada','ogrodzenie','konstrukcja','naprawa'], 'material': ['nie-wiem','stal','nierdzewna','aluminium'], 'finish':['do-ustalenia','surowe','proszek','ocynk'], 'installation':['do-ustalenia','tak','nie']}
-    for key, allowed in enums.items():
-        if payload.get(key) not in allowed:
-            raise ValueError('Nieprawidłowy wybór: ' + key)
-        clean[key] = payload[key]
-    for key, maximum in [('length',200), ('height',10)]:
-        value = payload.get(key, '')
-        if value == '':
-            clean[key] = None
-        else:
-            try:
-                number = float(value)
-                if not .1 <= number <= maximum:
-                    raise ValueError()
-            except (ValueError, TypeError):
-                raise ValueError('Nieprawidłowy wymiar: ' + key)
-            clean[key] = number
+    clean.update(parameters(payload))
     attachments = payload.get('attachments', [])
     if not isinstance(attachments, list) or len(attachments) > 3:
         raise ValueError('Maksymalnie 3 załączniki.')
@@ -77,6 +62,7 @@ def validate(payload):
 
 def save_inquiry(payload):
     clean, files = validate(payload)
+    clean['estimate'] = estimate(clean)
     inquiry_id = uuid.uuid4().hex
     DATA.mkdir(exist_ok=True)
     with closing(sqlite3.connect(DATA / 'inquiries.sqlite3')) as db, db:
@@ -105,14 +91,12 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(content)
 
     def do_GET(self):
-        if self.path == '/api/pricing':
-            return self.reply(200, json.loads((ROOT / 'pricing.json').read_text(encoding='utf-8')))
         if self.path.startswith('/api/'):
             return self.reply(404, {'error':'Nie znaleziono.'})
         super().do_GET()
 
     def do_POST(self):
-        if self.path != '/api/inquiries':
+        if self.path not in ('/api/inquiries', '/api/estimate'):
             return self.reply(404, {'error':'Nie znaleziono.'})
         origin = self.headers.get('Origin')
         if origin and origin not in (f'http://127.0.0.1:{self.server.server_port}', f'http://localhost:{self.server.server_port}'):
@@ -121,9 +105,12 @@ class Handler(SimpleHTTPRequestHandler):
             return self.reply(415, {'error':'Wymagany JSON.'})
         try:
             size = int(self.headers.get('Content-Length', '0'))
-            if not 0 < size <= MAX_BODY:
+            limit = 64 * 1024 if self.path == '/api/estimate' else MAX_BODY
+            if not 0 < size <= limit:
                 return self.reply(413, {'error':'Zapytanie zbyt duże lub puste.'})
             payload = json.loads(self.rfile.read(size))
+            if self.path == '/api/estimate':
+                return self.reply(200, estimate(payload))
             identifier = save_inquiry(payload)
         except (ValueError, TypeError, UnicodeError) as error:
             return self.reply(400, {'error':str(error)})
