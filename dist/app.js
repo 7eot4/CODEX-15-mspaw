@@ -26,7 +26,7 @@ function updateEstimate() {
       if (sequence !== estimateSequence) return;
       if (!response.ok) throw Error(result.error || 'Nieprawidłowe parametry.');
       latestEstimate = result;
-      priceBox.textContent = result.status === 'estimated' ? `${result.min.toLocaleString('pl-PL')}–${result.max.toLocaleString('pl-PL')} zł brutto` : 'Wycena indywidualna';
+      priceBox.textContent = result.status === 'estimated' ? `${result.demo ? 'Przykład: ' : ''}${result.min.toLocaleString('pl-PL')}–${result.max.toLocaleString('pl-PL')} zł brutto` : 'Wycena indywidualna';
       priceNote.textContent = result.message + (result.scope ? ` Zakres: ${result.scope}` : '');
     } catch (error) {
       if (sequence !== estimateSequence) return;
@@ -38,6 +38,12 @@ function updateEstimate() {
 form.addEventListener('input', event => { if (estimateFields.includes(event.target.name)) updateEstimate(); });
 form.addEventListener('change', event => { if (estimateFields.includes(event.target.name)) updateEstimate(); });
 updateEstimate();
+document.querySelector('#load-demo').addEventListener('click', () => {
+  const example = { type: 'balustrada', material: 'stal', finish: 'proszek', installation: 'tak', length: '6.5', height: '1.1', description: 'PRZYKŁAD DEMO: prosta balustrada tarasowa, 6,5 m długości i 1,1 m wysokości. Pionowe wypełnienie profilowe, kolor grafitowy, montaż do przygotowanego podłoża.', location: 'Niedźwiedź', name: 'Klient demonstracyjny', email: 'klient@example.com', phone: '000 000 000', deadline: '' };
+  for (const [key, value] of Object.entries(example)) form.elements[key].value = value;
+  updateEstimate();
+  statusBox.textContent = 'Wczytano fikcyjne dane przykładowe. Możesz zmienić wymiary i sprawdzić wynik, a następnie zapisać testowe zapytanie.';
+});
 document.querySelectorAll('[data-type]').forEach(link => link.addEventListener('click', () => { form.elements.type.value = link.dataset.type; updateEstimate(); }));
 document.querySelector('[name=deadline]').min = new Date().toLocaleDateString('en-CA');
 function inquiryText() {
@@ -58,6 +64,7 @@ form.addEventListener('submit', async event => {
   const snapshot = parameters();
   form.querySelectorAll('fieldset').forEach(fieldset => { fieldset.disabled = true; });
   document.querySelector('#download').disabled = true;
+  document.querySelector('#load-demo').disabled = true;
   button.disabled = true; statusBox.textContent = 'Zapisywanie zapytania lokalnie…';
   try {
     const attachments = await Promise.all(files.map(file => new Promise((resolve,reject) => {
@@ -71,6 +78,7 @@ form.addEventListener('submit', async event => {
     button.disabled = false;
     form.querySelectorAll('fieldset').forEach(fieldset => { fieldset.disabled = false; });
     document.querySelector('#download').disabled = false;
+    document.querySelector('#load-demo').disabled = false;
     updateEstimate();
   }
 });

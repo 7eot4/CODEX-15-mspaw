@@ -59,6 +59,23 @@ class PricingTests(unittest.TestCase):
         self.path.write_text('{broken', encoding='utf-8')
         self.assertEqual(pricing.estimate(specification())['reason'], 'unavailable')
 
+    def test_demo_never_implies_owner_approval(self):
+        config = fixture() | {'approved': False, 'mode': 'demo', 'demoEnabled': True}
+        self.write_config(config)
+        result = pricing.estimate(specification())
+        self.assertTrue(result['demo'])
+        self.assertIn('fikcyjne', result['message'])
+        config['demoEnabled'] = False
+        self.write_config(config)
+        self.assertEqual(pricing.estimate(specification())['reason'], 'unapproved')
+
+    def test_shipped_demo_configuration(self):
+        with patch.object(pricing, 'CONFIG', Path(pricing.__file__).with_name('pricing.json')):
+            result = pricing.estimate(specification())
+            self.assertEqual((result['min'], result['max']), (4700, 6330))
+            self.assertTrue(result['demo'])
+            self.assertIn('fikcyjne', result['message'])
+
     def test_bad_dimensions_rejected(self):
         for invalid in ('NaN', 'Infinity', '-1', '201', True, [], {}):
             with self.subTest(invalid=invalid):

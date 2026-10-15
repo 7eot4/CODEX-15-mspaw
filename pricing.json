@@ -1,4 +1,332 @@
 {
+  "mode": "demo",
+  "demoEnabled": true,
   "approved": false,
-  "rates": {}
+  "note": "Fikcyjny cennik na wyrazna prosbe uzytkownika. Nie jest oferta M-SPAW.",
+  "rates": {
+    "balustrada": {
+      "stal": {
+        "surowe": {
+          "tak": {
+            "min": 580,
+            "max": 790,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 430,
+            "max": 590,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        },
+        "proszek": {
+          "tak": {
+            "min": 700,
+            "max": 950,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 550,
+            "max": 750,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        },
+        "ocynk": {
+          "tak": {
+            "min": 760,
+            "max": 1030,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 610,
+            "max": 830,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        }
+      },
+      "nierdzewna": {
+        "surowe": {
+          "tak": {
+            "min": 881,
+            "max": 1203,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 731,
+            "max": 1003,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        },
+        "proszek": {
+          "tak": {
+            "min": 1001,
+            "max": 1363,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 851,
+            "max": 1163,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        }
+      },
+      "aluminium": {
+        "surowe": {
+          "tak": {
+            "min": 795,
+            "max": 1085,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 645,
+            "max": 885,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        },
+        "proszek": {
+          "tak": {
+            "min": 915,
+            "max": 1245,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 765,
+            "max": 1045,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.2,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        }
+      }
+    },
+    "ogrodzenie": {
+      "stal": {
+        "surowe": {
+          "tak": {
+            "min": 493,
+            "max": 672,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 366,
+            "max": 502,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        },
+        "proszek": {
+          "tak": {
+            "min": 595,
+            "max": 808,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 468,
+            "max": 638,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        },
+        "ocynk": {
+          "tak": {
+            "min": 646,
+            "max": 876,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 518,
+            "max": 706,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        }
+      },
+      "nierdzewna": {
+        "surowe": {
+          "tak": {
+            "min": 749,
+            "max": 1023,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 621,
+            "max": 853,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        },
+        "proszek": {
+          "tak": {
+            "min": 851,
+            "max": 1159,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 723,
+            "max": 989,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        }
+      },
+      "aluminium": {
+        "surowe": {
+          "tak": {
+            "min": 676,
+            "max": 922,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 548,
+            "max": 752,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        },
+        "proszek": {
+          "tak": {
+            "min": 778,
+            "max": 1058,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; montaz do przygotowanego podloza. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          },
+          "nie": {
+            "min": 650,
+            "max": 888,
+            "fixed": 150,
+            "minHeight": 0.8,
+            "maxHeight": 1.8,
+            "minLength": 1,
+            "maxLength": 30,
+            "scope": "DEMO: prosty odcinek z pionowym wypelnieniem profilowym, standardowe przekroje; odbior bez montazu. Bez transportu, fundamentow i nietypowych detali. Parametry i ceny sa fikcyjne."
+          }
+        }
+      }
+    }
+  }
 }

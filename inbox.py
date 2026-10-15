@@ -52,7 +52,7 @@ def render_inbox(data_dir):
                     attachments.append(f'<li><a href="files/{storage}" download>{escape(original)}</a> · {len(content):,} B</li>')
                 estimate = payload.get('estimate', {})
                 if estimate.get('status') == 'estimated':
-                    pricing = f"{escape(estimate.get('min'))}–{escape(estimate.get('max'))} PLN brutto"
+                    pricing = ('DEMO — fikcyjna wycena: ' if estimate.get('demo') else '') + f"{escape(estimate.get('min'))}–{escape(estimate.get('max'))} PLN brutto"
                     pricing += f"<p>Wersja cennika: {escape(estimate.get('revision', ''))}</p><p>{escape(estimate.get('scope', ''))}</p>"
                 else:
                     pricing = 'Wycena indywidualna'

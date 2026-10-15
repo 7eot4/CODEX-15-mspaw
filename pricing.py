@@ -46,7 +46,8 @@ def estimate(payload):
     try:
         raw = CONFIG.read_bytes()
         config = json.loads(raw)
-        if not isinstance(config, dict) or config.get('approved') is not True:
+        demo = isinstance(config, dict) and config.get('mode') == 'demo' and config.get('demoEnabled') is True
+        if not isinstance(config, dict) or (config.get('approved') is not True and not demo):
             return individual('unapproved', 'Cennik Macieja nie jest jeszcze zatwierdzony. Przygotuj parametry do indywidualnej oferty.')
         rate = config.get('rates', {})
         for key in ('type', 'material', 'finish', 'installation'):
@@ -74,7 +75,7 @@ def estimate(payload):
             return int((value / 10).quantize(Decimal('1'), rounding=ROUND_HALF_UP) * 10)
         return dict(status='estimated', min=rounded(length * low + fixed),
                     max=rounded(length * high + fixed), currency='PLN', tax='gross',
-                    revision=hashlib.sha256(raw).hexdigest()[:16], scope=scope.strip(),
-                    parameters=clean, message='Szacunek brutto, nie oferta końcowa. Transport i nietypowe warunki wymagają osobnej oceny. Cenę potwierdza Maciej.')
+                    revision=hashlib.sha256(raw).hexdigest()[:16], scope=scope.strip(), demo=demo,
+                    parameters=clean, message=('DEMO: fikcyjne stawki do prezentacji kalkulatora, nie cennik firmy. Transport nie jest uwzględniony.' if demo else 'Szacunek brutto, nie oferta końcowa. Transport i nietypowe warunki wymagają osobnej oceny. Cenę potwierdza Maciej.'))
     except (OSError, ValueError, TypeError):
         return individual('unavailable', 'Wycena automatyczna jest chwilowo niedostępna. Możesz przygotować zapytanie do indywidualnej oferty.')

@@ -29,7 +29,7 @@ class InboxTests(unittest.TestCase):
             self.assertNotIn('<script>', document)
             self.assertIn('Pierwsza linia\nDruga linia', document)
             self.assertIn('Malowanie proszkowe', document)
-            self.assertIn('Wycena indywidualna', document)
+            self.assertIn('DEMO — fikcyjna wycena', document)
             files = list((target.parent / 'files').iterdir())
             self.assertEqual(len(files), 1)
             self.assertEqual(files[0].read_bytes(), file_content)
