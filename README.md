@@ -6,6 +6,12 @@ Lokalna wersja strony firmy spawalniczej. Cel: klient przekazuje komplet paramet
 
 Otwórz `START.cmd` (wymaga dostępnego Pythona 3.11+). Podgląd: http://127.0.0.1:8015. Okno serwera musi pozostać otwarte. Zatrzymanie: Ctrl+C w oknie serwera. Przy ponownym uruchomieniu nie uruchamiaj drugiej instancji, jeśli pierwsza nadal działa.
 
+## Odczyt zapisanych zapytań
+
+Otwórz `ODBIOR.cmd`. Program odczyta lokalną bazę i otworzy czytelny widok: opis, wymiary, kontakt klienta, zapisany szacunek z wersją cennika oraz pliki do pobrania. Nowe zgłoszenia pojawią się po ponownym uruchomieniu tego pliku. Nie potrzeba działającego serwera strony.
+
+Widok zapisuje się w `.local/inbox/index.html`, a kopie załączników w `.local/inbox/files/`. Te pliki zawierają dane zapytań, pozostają poza serwowanym katalogiem `dist` i są wykluczone z Git. Odczyt nie zmienia bazy. Nie ma publicznego adresu listy zgłoszeń. Jest to lokalny odbiór testów, nie skrzynka Macieja na innym komputerze. Zakończenie i retencję danych, w tym kopii w tym widoku, trzeba ustalić przed obsługą rzeczywistych klientów.
+
 ## Aktualny stan
 
 - Strona dostosowana do telefonów i komputerów, autorska ilustracja konstrukcji stalowej, wybór rodzaju zlecenia, opis procesu i FAQ.
