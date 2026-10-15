@@ -2,6 +2,8 @@
 
 Podgląd opublikowany na wyraźne polecenie użytkownika: https://7eot4.github.io/CODEX-15-mspaw/ . Publiczne repozytorium: https://github.com/7eot4/CODEX-15-mspaw , gałąź `main`. Każdy push uruchamia testy i wdrożenie. Zasady kolejnych aktualizacji zapisano w AGENTS.md.
 
+Zmiana wyglądu na prośbę użytkownika: nowoczesne konstrukcje, jasna strona, minimalizm i eleganckie balustrady. Nowy układ i oprawa, obrazy w dist/assets, pełne opisy w ASSETS.md. Kalkulator i ścieżka zapytania pozostają demonstracyjne. Kontrola graficzna strony w przeglądarce nadal niedostępna przez konektor (brak dostępnych kart); nie zastępuj testów funkcjonalnych deklaracją oceny wizualnej.
+
 Cel uruchomienia strony dla rzeczywistych klientów nie jest ukończony. Na wyraźną prośbę użytkownika uzupełniono fikcyjne dane kontaktowe i włączono demonstracyjny cennik. Brak danych wykonawcy nie blokuje już lokalnej prezentacji i testowania natychmiastowej wyceny. Dane i ceny demo są jawnie oznaczone; nie zostały przypisane Maciejowi jako jego rzeczywista oferta.
 
 | Wymaganie | Dowód aktualnego stanu | Ocena |

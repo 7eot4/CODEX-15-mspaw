@@ -11,7 +11,8 @@ class PagesTests(unittest.TestCase):
     def test_artifact_and_browser_calculator(self):
         with tempfile.TemporaryDirectory() as folder:
             target = build_pages.build(folder)
-            self.assertEqual({p.name for p in target.iterdir()}, {'index.html','style.css','app.js','demo-estimator.js','runtime.json','demo-pricing.json','.nojekyll'})
+            self.assertEqual({p.name for p in target.iterdir()}, {'index.html','style.css','app.js','demo-estimator.js','runtime.json','demo-pricing.json','.nojekyll','assets'})
+            self.assertEqual({p.name for p in (target / 'assets').iterdir()}, {'architecture.png','workshop.png'})
             self.assertIn('demo-estimator.js', (target / 'index.html').read_text(encoding='utf-8'))
             settings = json.loads((target / 'runtime.json').read_text())
             self.assertEqual(settings['mode'], 'pages-demo')

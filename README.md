@@ -18,7 +18,7 @@ Widok zapisuje się w `.local/inbox/index.html`, a kopie załączników w `.loca
 
 ## Aktualny stan
 
-- Strona dostosowana do telefonów i komputerów, autorska ilustracja konstrukcji stalowej, wybór rodzaju zlecenia, opis procesu i FAQ.
+- Nowy, jasny projekt wybrany przez użytkownika: minimalistyczna strona z elegancką balustradą, ciepłą bielą, grafitem i oliwkowym akcentem. Ilustracje ImageGen, ich pochodzenie i prompty opisano w ASSETS.md; są oznaczone jako koncepcyjne, nie realizacje firmy. Układ obejmuje ofertę, proces, kalkulator, FAQ i kontakt.
 - Formularz z parametrami, danymi kontaktowymi, terminem oraz maksymalnie 3 załącznikami po 5 MB. Serwer sprawdza dane i podstawową sygnaturę pliku. Nie jest to skaner bezpieczeństwa ani parser dokumentacji.
 - Zapytania i załączniki zapisują się transakcyjnie w `.local/inquiries.sqlite3`. Dane nie są dostępne przez statyczny serwer i są wyłączone z Git. Brak wysyłki e-mail oraz powiadomień. Formularz wyraźnie opisuje lokalny tryb testowy; używaj danych testowych.
 - Można pobrać opis zapytania jako TXT. Załączniki trzeba wtedy przekazać osobno. Pobranie nie oznacza wysłania.

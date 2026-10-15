@@ -15,6 +15,7 @@ def build(target=None):
     target.mkdir(parents=True, exist_ok=True)
     for name in ('index.html', 'style.css', 'app.js', 'demo-estimator.js'):
         shutil.copyfile(ROOT / 'dist' / name, target / name)
+    shutil.copytree(ROOT / 'dist' / 'assets', target / 'assets', dirs_exist_ok=True)
     (target / 'demo-pricing.json').write_bytes(raw)
     (target / 'runtime.json').write_text(json.dumps({'mode': 'pages-demo', 'pricingRevision': hashlib.sha256(raw).hexdigest()[:16]}), encoding='utf-8')
     (target / '.nojekyll').write_text('', encoding='utf-8')
