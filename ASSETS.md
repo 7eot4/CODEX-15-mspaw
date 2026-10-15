@@ -6,6 +6,16 @@ Grafiki utworzono wbudowanym narzędziem ImageGen. Nie przedstawiają obiektów 
 
 - `dist/assets/architecture.png` — główna ilustracja nowoczesnej balustrady.
 - `dist/assets/workshop.png` — ilustracja procesu w dalszej sekcji strony.
+- `dist/assets/gate.png` — brama i furtka, przykład do galerii.
+- `dist/assets/stairs.png` — schody stalowe z drewnianymi stopniami, przykład do galerii.
+
+## Prompt: gate.png
+
+Use case: photorealistic-natural. Asset type: conceptual project gallery image for a bright minimalist Polish steel fabrication website. High end editorial architecture photograph of a completed modern graphite steel driveway gate and matching pedestrian gate, horizontal metal slats with clean straight geometry, warm off-white plaster pillars and light limestone garden wall, contemporary European home slightly visible behind it, ornamental grasses and simple neat planting. Quiet premium residential architecture, warm bright natural daylight, soft shadows, charcoal metal and cream stone, restrained muted olive foliage. Landscape 3:2, no people, no vehicles, no text, no logos, no watermark. This is a fictional illustrative project, not a real business portfolio. Focus on elegant metal fabrication and believable correct gate structure.
+
+## Prompt: stairs.png
+
+Use case: photorealistic-natural. Asset type: conceptual project gallery image for a bright minimalist Polish steel fabrication website. Premium editorial interior architecture photograph showing a completed straight staircase with an elegant graphite steel stringer construction, warm pale oak treads and slim vertical graphite steel balustrade. Believable properly supported stairs, uniform step rise and run, railing firmly attached to steel construction. Contemporary European home interior with off-white plaster walls, pale limestone floor and natural daylight from a large side window. Quiet uncluttered warm minimalist design, cream and charcoal palette, fine steel and oak textures, soft shadows. Wide landscape 3:2 composition framing the whole stair flight with enough surrounding room. No people, no text, no logos, no watermark. Fictional architectural concept, not a real company's portfolio.
 
 ## Prompt: architecture.png
 

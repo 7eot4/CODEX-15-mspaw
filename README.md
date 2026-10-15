@@ -18,6 +18,9 @@ Widok zapisuje się w `.local/inbox/index.html`, a kopie załączników w `.loca
 
 ## Aktualny stan
 
+- Galeria trzech wizualizacji (balustrada, brama, schody): powiększenie w natywnym oknie dialogowym, poprzedni/następny obraz, klawisze strzałek i Escape, odnośnik do zapytania o wybrany rodzaj projektu. Grafiki są demonstracyjne, nie stanowią portfolio Macieja; zastąpienie ich rzeczywistymi zdjęciami nie wymaga zmiany układu galerii.
+- Sekcja mapy Google dla adresu potwierdzonego przez użytkownika: Niedźwiedź 217, 34-735 Niedźwiedź. Osadzona mapa wyszukuje adres; przyciski otwierają wyznaczenie trasy i podaną wizytówkę firmy. Do nawigacji dodano Galerię i Dojazd.
+
 - Nowy, jasny projekt wybrany przez użytkownika: minimalistyczna strona z elegancką balustradą, ciepłą bielą, grafitem i oliwkowym akcentem. Ilustracje ImageGen, ich pochodzenie i prompty opisano w ASSETS.md; są oznaczone jako koncepcyjne, nie realizacje firmy. Układ obejmuje ofertę, proces, kalkulator, FAQ i kontakt.
 - Formularz z parametrami, danymi kontaktowymi, terminem oraz maksymalnie 3 załącznikami po 5 MB. Serwer sprawdza dane i podstawową sygnaturę pliku. Nie jest to skaner bezpieczeństwa ani parser dokumentacji.
 - Zapytania i załączniki zapisują się transakcyjnie w `.local/inquiries.sqlite3`. Dane nie są dostępne przez statyczny serwer i są wyłączone z Git. Brak wysyłki e-mail oraz powiadomień. Formularz wyraźnie opisuje lokalny tryb testowy; używaj danych testowych.

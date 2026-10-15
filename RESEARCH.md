@@ -1,5 +1,7 @@
 # Research i kierunek projektu — 2026-10-15
 
+Aktualizacja: użytkownik potwierdził adres siedziby **Niedźwiedź 217, 34-735 Niedźwiedź**. Na tej podstawie dodano sekcję z mapą i wyznaczaniem trasy. Galeria na obecnym etapie zawiera jawnie oznaczone wizualizacje AI; nie otrzymano jeszcze rzeczywistych zdjęć realizacji.
+
 ## Fakty i źródła
 
 Użytkownik potwierdził: Maciej Kowalczyk, Niedźwiedź. Podał Instagram https://www.instagram.com/mspaw_uslugi/ i wizytówkę https://share.google/rGiGfKcLTMRinH7Lw . Instagram nie udostępnił treści narzędziu badawczemu; Google przekierował do ekranu zgód. Nie wywnioskowano z nich numeru telefonu, zdjęć ani technologii wykonawcy. Podobnych nazw firm jest wiele; odrzucono dane innych Maciejów i firm M-SPAW.

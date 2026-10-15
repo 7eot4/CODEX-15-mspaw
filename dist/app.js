@@ -20,6 +20,46 @@ const runtime = fetch('./runtime.json').then(response => {
   }
   return settings;
 });
+// Gallery uses native dialog for modal focus and Escape handling.
+const projectDialog = document.querySelector('#project-view');
+const projectCards = [...document.querySelectorAll('[data-project]')];
+let currentProject = 0;
+function showProject(index) {
+  currentProject = (index + projectCards.length) % projectCards.length;
+  const card = projectCards[currentProject];
+  const image = card.querySelector('img');
+  const expanded = document.querySelector('#project-image');
+  expanded.src = image.getAttribute('src');
+  expanded.alt = image.alt;
+  document.querySelector('#project-title').textContent = card.querySelector('strong').textContent;
+  document.querySelector('#project-description').textContent = card.querySelector('.gallery-caption').textContent;
+  document.querySelector('#project-counter').textContent = `${currentProject + 1} / ${projectCards.length}`;
+}
+projectCards.forEach((card, index) => card.addEventListener('click', () => {
+  showProject(index);
+  projectDialog.showModal();
+  document.body.classList.add('project-open');
+}));
+document.querySelector('#project-close').addEventListener('click', () => projectDialog.close());
+document.querySelector('#project-prev').addEventListener('click', () => showProject(currentProject - 1));
+document.querySelector('#project-next').addEventListener('click', () => showProject(currentProject + 1));
+projectDialog.addEventListener('close', () => document.body.classList.remove('project-open'));
+projectDialog.addEventListener('keydown', event => {
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    event.preventDefault();
+    showProject(currentProject + (event.key === 'ArrowRight' ? 1 : -1));
+  }
+});
+projectDialog.addEventListener('click', event => {
+  if (event.target !== projectDialog) return;
+  const box = projectDialog.getBoundingClientRect();
+  if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) projectDialog.close();
+});
+document.querySelector('#project-quote').addEventListener('click', () => {
+  form.elements.type.value = ['balustrada', 'ogrodzenie', 'konstrukcja'][currentProject];
+  projectDialog.close();
+  updateEstimate();
+});
 runtime.catch(() => {});
 function estimateParameters() {
   const values = parameters();
