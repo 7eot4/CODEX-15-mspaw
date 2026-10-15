@@ -1,5 +1,16 @@
 # Oprawa wizualna — jasny projekt
 
+## Aktualne materiały z Instagrama
+
+Na polecenie użytkownika zastąpiono obrazy demonstracyjne w widocznej stronie rzeczywistymi materiałami M-SPAW:
+
+- `dist/assets/logo-mspaw.jpg` — niezmieniona kopia logo dostarczonego przez użytkownika; białe marginesy kadrowane wyłącznie przez CSS.
+- `dist/assets/balustrada-wewnetrzna.jpg`, `balustrada-balkonowa.jpg`, `brama-wjazdowa.jpg`, `balustrady-francuskie.jpg`, `balustrady-zewnetrzne.jpg`, `balustrada-pionowa.jpg` — sześć różnych zdjęć/postów z profilu `mspaw_uslugi`, wyodrębnionych bez modyfikacji z PDF zapisanego przez użytkownika. Nie usunięto logo ani oznaczeń firmy z fotografii. Powtórzone ujęcie balustrady wewnętrznej pominięto.
+
+Dostęp do profilu przez zwykły HTTP zwrócił tytuł i opis profilu, lecz nie listę fotografii. Wykorzystano więc obrazy osadzone w lokalnym zapisie Instagrama, nie zrzut całej strony. PDF zawiera elementy interfejsu konta i nie jest publikowany ani śledzony w Git. Z PDF do publikacji trafiają wyłącznie wybrane obrazy realizacji. Pozyskane z treści firmowego posta dane kontaktowe: `538 792 159`, `firma.mspaw@gmail.com`.
+
+Poprzednie obrazy AI opisane niżej pozostają historycznymi materiałami koncepcyjnymi; nie są już używane w stronie i nie trafiają do nowego artefaktu publikacji. `build_pages.py` kopiuje wyłącznie siedem wymienionych plików rzeczywistych materiałów.
+
 Kierunek wybrany przez użytkownika: „Nowoczesne konstrukcje — jasna strona, minimalizm, eleganckie balustrady”. Ciepła biel, grafit, delikatna oliwkowa zieleń, typografia DM Sans. Zastąpiono poprzedni ciemny projekt i schemat SVG nową kompozycją. Formularz i cennik demonstracyjny zachowano.
 
 Grafiki utworzono wbudowanym narzędziem ImageGen. Nie przedstawiają obiektów ani warsztatu firmy. Obie mają widoczne opisy na stronie. Docelowe pliki w projekcie:

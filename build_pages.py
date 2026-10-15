@@ -15,7 +15,12 @@ def build(target=None):
     target.mkdir(parents=True, exist_ok=True)
     for name in ('index.html', 'style.css', 'app.js', 'demo-estimator.js'):
         shutil.copyfile(ROOT / 'dist' / name, target / name)
-    shutil.copytree(ROOT / 'dist' / 'assets', target / 'assets', dirs_exist_ok=True)
+    assets = ('logo-mspaw.jpg', 'balustrada-wewnetrzna.jpg', 'balustrada-balkonowa.jpg',
+              'brama-wjazdowa.jpg', 'balustrady-francuskie.jpg',
+              'balustrady-zewnetrzne.jpg', 'balustrada-pionowa.jpg')
+    (target / 'assets').mkdir(exist_ok=True)
+    for name in assets:
+        shutil.copyfile(ROOT / 'dist' / 'assets' / name, target / 'assets' / name)
     (target / 'demo-pricing.json').write_bytes(raw)
     (target / 'runtime.json').write_text(json.dumps({'mode': 'pages-demo', 'pricingRevision': hashlib.sha256(raw).hexdigest()[:16]}), encoding='utf-8')
     (target / '.nojekyll').write_text('', encoding='utf-8')

@@ -13,7 +13,7 @@ const runtime = fetch('./runtime.json').then(response => {
     const response = await fetch('./demo-pricing.json');
     if (!response.ok) throw Error('Nie wczytano cennika demo.');
     settings.pricing = await response.json();
-    document.querySelector('.preview').textContent = 'PUBLICZNY PODGLĄD DEMO · fikcyjne ceny i kontakt · formularz nie wysyła danych';
+    document.querySelector('.preview').textContent = 'PUBLICZNY PODGLĄD · realizacje i kontakt M-SPAW · ceny demo, formularz nie wysyła danych';
     document.querySelector('.local-note').textContent = 'To demonstracja strony. Kalkulator działa w przeglądarce. Formularz symuluje zgłoszenie; nie wysyła danych ani załączników do firmy.';
     form.querySelector('[type=submit]').textContent = 'Sprawdź zapytanie demonstracyjne ↗';
     form.querySelector('.check').lastChild.textContent = 'Rozumiem, że jest to demonstracja. Zapytanie i załączniki nie zostaną wysłane do firmy.';
@@ -56,7 +56,7 @@ projectDialog.addEventListener('click', event => {
   if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) projectDialog.close();
 });
 document.querySelector('#project-quote').addEventListener('click', () => {
-  form.elements.type.value = ['balustrada', 'ogrodzenie', 'konstrukcja'][currentProject];
+  form.elements.type.value = projectCards[currentProject].dataset.projectType;
   projectDialog.close();
   updateEstimate();
 });
