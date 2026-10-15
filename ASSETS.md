@@ -11,7 +11,7 @@ Dostęp do profilu przez zwykły HTTP zwrócił tytuł i opis profilu, lecz nie 
 
 Poprzednie obrazy AI opisane niżej pozostają historycznymi materiałami koncepcyjnymi; nie są już używane w stronie i nie trafiają do nowego artefaktu publikacji. `build_pages.py` kopiuje wyłącznie siedem wymienionych plików rzeczywistych materiałów.
 
-Kierunek wybrany przez użytkownika: „Nowoczesne konstrukcje — jasna strona, minimalizm, eleganckie balustrady”. Ciepła biel, grafit, delikatna oliwkowa zieleń, typografia DM Sans. Zastąpiono poprzedni ciemny projekt i schemat SVG nową kompozycją. Formularz i cennik demonstracyjny zachowano.
+Kierunek wybrany przez użytkownika: „Nowoczesne konstrukcje — jasna strona, minimalizm, eleganckie balustrady”. Aktualny system opisano w DESIGN.md: biel, granat oryginalnego logo i grafit, jednolita typografia i komponenty. Poprzednie oliwkowe akcenty i ilustracje zastąpiono spójną identyfikacją M-SPAW. Formularz i cennik demonstracyjny zachowano.
 
 Grafiki utworzono wbudowanym narzędziem ImageGen. Nie przedstawiają obiektów ani warsztatu firmy. Obie mają widoczne opisy na stronie. Docelowe pliki w projekcie:
 

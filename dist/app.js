@@ -1,5 +1,26 @@
 const form = document.querySelector('#quote-form');
 const statusBox = document.querySelector('#status');
+const menuToggle = document.querySelector('.menu-toggle');
+const siteNavigation = document.querySelector('#site-navigation');
+function closeNavigation() {
+  siteNavigation.classList.remove('is-open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+}
+menuToggle.addEventListener('click', () => {
+  const expanded = menuToggle.getAttribute('aria-expanded') !== 'true';
+  menuToggle.setAttribute('aria-expanded', String(expanded));
+  siteNavigation.classList.toggle('is-open', expanded);
+});
+siteNavigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNavigation));
+document.addEventListener('click', event => {
+  if (!event.target.closest('.site-header')) closeNavigation();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+    closeNavigation();
+    menuToggle.focus();
+  }
+});
 function parameters() { return Object.fromEntries(new FormData(form)); }
 const estimateFields = ['type', 'material', 'finish', 'installation', 'length', 'height'];
 const priceBox = document.querySelector('#price');
