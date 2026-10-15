@@ -44,7 +44,7 @@ def estimate(payload):
     if clean['type'] in ('konstrukcja', 'naprawa'):
         return individual('assessment', 'Ta praca wymaga indywidualnej oceny wykonawcy na podstawie opisu i zdjęć.')
     try:
-        raw = CONFIG.read_bytes()
+        raw = CONFIG.read_bytes().replace(b'\r\n', b'\n')
         config = json.loads(raw)
         demo = isinstance(config, dict) and config.get('mode') == 'demo' and config.get('demoEnabled') is True
         if not isinstance(config, dict) or (config.get('approved') is not True and not demo):

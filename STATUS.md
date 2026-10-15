@@ -1,5 +1,7 @@
 # Stan realizacji — 2026-10-15
 
+Podgląd opublikowany na wyraźne polecenie użytkownika: https://7eot4.github.io/CODEX-15-mspaw/ . Publiczne repozytorium: https://github.com/7eot4/CODEX-15-mspaw , gałąź `main`. Każdy push uruchamia testy i wdrożenie. Zasady kolejnych aktualizacji zapisano w AGENTS.md.
+
 Cel uruchomienia strony dla rzeczywistych klientów nie jest ukończony. Na wyraźną prośbę użytkownika uzupełniono fikcyjne dane kontaktowe i włączono demonstracyjny cennik. Brak danych wykonawcy nie blokuje już lokalnej prezentacji i testowania natychmiastowej wyceny. Dane i ceny demo są jawnie oznaczone; nie zostały przypisane Maciejowi jako jego rzeczywista oferta.
 
 | Wymaganie | Dowód aktualnego stanu | Ocena |
@@ -11,8 +13,8 @@ Cel uruchomienia strony dla rzeczywistych klientów nie jest ukończony. Na wyra
 | Natychmiastowa wycena | pricing.py, pricing.json, test_pricing.py, test_http.py | Działa w trybie demo; przykład 6,5 m daje 4700–6330 PLN brutto. approved=false, mode=demo, demoEnabled=true; wynik zapisuje demo=true |
 | Rzeczywista oferta cenowa | Brak zatwierdzonych stawek, przekrojów i zakresów wariantów | Nieukończone; wymagane dane Macieja |
 | Test wyglądu i pełnej obsługi w przeglądarce | Próba otwarcia: brak przeglądarki IAB, tworzenie karty Chrome odmówione przez konektor | Niezweryfikowane |
-| Publikacja | Brak zewnętrznego repozytorium/hostingu i adresu publikacji | Nieopublikowane; wymaga przygotowania docelowego odbioru i potwierdzenia działania zewnętrznego |
+| Publikacja | GitHub Pages i workflow „Deploy M-SPAW preview”; strona i zasoby HTTP 200 | Opublikowano publiczny podgląd; formularz symuluje zgłoszenie bez transmisji danych, kalkulator demonstracyjny działa w przeglądarce |
 
-Weryfikacja ostatniej zmiany: `python -m unittest discover -s tests -v` — 12 testów poprawnych, w tym demonstracyjny cennik i brak domniemanej zgody wykonawcy; `node --check dist/app.js` — poprawna składnia; `git diff --check` — brak błędów. Nie wykonano testu wysłania wiadomości do firmy. Testy zapisu wykonują się w katalogach tymczasowych.
+Weryfikacja publikacji: 13 testów Python, kontrola składni JavaScript, budowa statycznego podglądu, udane wdrożenie Actions oraz HTTP 200 dla strony, CSS, obu skryptów, konfiguracji i demonstracyjnego cennika. Test `test_pages.py` porównuje wynik kalkulatora przeglądarkowego z serwerem dla wszystkich wariantów fikcyjnego cennika i kontroluje zawartość katalogu publikacji. Nie wykonano wizualnego przeglądu ani wysyłki wiadomości do firmy. Testy zapisu wykonują się w katalogach tymczasowych.
 
 Teraz: podgląd lokalny i testy z przyciskiem „Wczytaj przykład demonstracyjny”. Następnie: kontrola w przeglądarce. Backlog przed obsługą prawdziwych klientów: rzeczywiste dane i stawki Macieja, podłączenie uzgodnionego odbioru zapytań, zdjęcia realizacji i publikacja do zatwierdzenia. Lokalny zapis testowy nie oznacza dostarczenia wiadomości do firmy.

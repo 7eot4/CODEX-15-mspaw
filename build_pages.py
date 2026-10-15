@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parent
 
 def build(target=None):
     target = Path(target) if target else ROOT / '_site'
-    raw = (ROOT / 'pricing.json').read_bytes()
+    raw = (ROOT / 'pricing.json').read_bytes().replace(b'\r\n', b'\n')
     config = json.loads(raw)
     if config.get('mode') != 'demo' or config.get('demoEnabled') is not True or config.get('approved') is not False:
         raise ValueError('Pages publikuje wyłącznie jawny cennik demonstracyjny.')
