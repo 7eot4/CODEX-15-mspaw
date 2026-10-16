@@ -1,4 +1,4 @@
-﻿/* M-SPAW: one visual system based on the original navy brand mark. */
+/* M-SPAW: one visual system based on the original navy brand mark. */
 :root {
   --navy: #193f6d;
   --navy-hover: #123054;
@@ -34,7 +34,7 @@ h3 { font-size: 23px; letter-spacing: -.025em; margin-bottom: 12px; }
 .button:hover, .nav-cta:hover { background: var(--navy-hover); border-color: var(--navy-hover); }
 .quiet, .text-button { display: inline-block; padding: 7px 0; border: 0; border-bottom: 1px solid #9bacc0; background: none; color: var(--navy); font-size: 13px; font-weight: 600; }
 .quiet:hover, .text-button:hover { border-bottom-color: var(--navy); }
-.site-header { position: relative; z-index: 5; display: grid; grid-template-columns: 170px minmax(0, 1fr) auto; align-items: center; gap: 28px; width: min(calc(100% - 48px), var(--content)); margin: auto; padding: 18px 0; background: var(--white); }
+.site-header { position: relative; z-index: 5; display: grid; grid-template-columns: 208px minmax(0, 1fr) auto; align-items: center; gap: 28px; width: min(calc(100% - 48px), var(--content)); margin: auto; padding: 18px 0; background: var(--white); }
 .logo { position: relative; display: block; width: 170px; height: 64px; overflow: hidden; flex-shrink: 0; }
 .logo > img { position: absolute; width: 252px; height: 252px; max-width: none; left: -39px; top: -96px; }
 .site-nav { display: flex; justify-content: center; align-items: center; gap: 22px; }
@@ -166,7 +166,7 @@ footer p { font-size: 14px; margin: 0; color: var(--muted); }
 footer small { margin-left: auto; font-size: 11px; color: var(--muted); }
 footer > a:last-child { font-size: 12px; color: var(--navy); white-space: nowrap; }
 @media (max-width: 1100px) {
-  .site-header { grid-template-columns: 170px minmax(0,1fr) auto; gap: 20px; }
+  .site-header { grid-template-columns: 208px minmax(0,1fr) auto; gap: 20px; }
   .menu-toggle { display: inline-flex; justify-self: end; align-items: center; gap: 10px; min-height: 44px; padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); color: var(--navy); font-size: 13px; font-weight: 600; }
   .menu-toggle svg { width: 20px; height: 20px; }
   .site-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: 0 10px 25px #193f6d12; }
@@ -262,3 +262,7 @@ footer > a:last-child { font-size: 12px; color: var(--navy); white-space: nowrap
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+.site-header > .logo { width:208px; height:80px; }
+.site-header > .logo > img { position:static; display:block; width:100%; height:100%; max-width:100%; object-fit:contain; }
+@media(max-width:600px) { .site-header > .logo { width:180px; height:70px; } }

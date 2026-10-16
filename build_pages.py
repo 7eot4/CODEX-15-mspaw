@@ -13,7 +13,7 @@ def build(target=None):
     if config.get('mode') != 'demo' or config.get('demoEnabled') is not True or config.get('approved') is not False:
         raise ValueError('Pages publikuje wyłącznie jawny cennik demonstracyjny.')
     target.mkdir(parents=True, exist_ok=True)
-    for name in ('index.html', 'style.css', 'app.js', 'demo-estimator.js', 'favicon.svg'):
+    for name in ('index.html', 'style.css', 'app.js', 'demo-estimator.js', 'favicon.svg', 'logo-header.svg'):
         shutil.copyfile(ROOT / 'dist' / name, target / name)
     assets = ('logo-mspaw.jpg', 'balustrada-wewnetrzna.jpg', 'balustrada-balkonowa.jpg',
               'brama-wjazdowa.jpg', 'balustrady-francuskie.jpg',
