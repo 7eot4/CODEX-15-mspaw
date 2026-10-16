@@ -1,8 +1,8 @@
 # M-SPAW — Maciej Kowalczyk, Niedźwiedź
 
-Publiczny podgląd: https://7eot4.github.io/CODEX-15-mspaw/
+Publiczny podgląd: https://7eot4.github.io/mspaw/
 
-Repozytorium: https://github.com/7eot4/CODEX-15-mspaw . Gałąź `main`; po aktualizacji GitHub Actions uruchamia testy i publikuje demonstrację. Podgląd zawiera kalkulator z fikcyjnymi stawkami, wczytanie przykładu i pobranie opisu. Formularz na Pages symuluje zgłoszenie: nie zapisuje ani nie wysyła danych i załączników. Pełny lokalny zapis pozostaje dostępny przez `START.cmd`.
+Repozytorium: https://github.com/7eot4/mspaw . Gałąź `main`; po aktualizacji GitHub Actions uruchamia testy i publikuje demonstrację. Podgląd zawiera kalkulator z fikcyjnymi stawkami, wczytanie przykładu i pobranie opisu. Formularz na Pages symuluje zgłoszenie: nie zapisuje ani nie wysyła danych i załączników. Pełny lokalny zapis pozostaje dostępny przez `START.cmd`.
 
 Lokalna wersja strony firmy spawalniczej. Cel: klient przekazuje komplet parametrów potrzebnych do oferty, a dla standardowych konstrukcji otrzymuje orientacyjny koszt po zatwierdzeniu cennika wykonawcy.
 

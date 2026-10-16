@@ -4,7 +4,7 @@ Aktualizacja spójności i przejrzystości: przebudowano arkusz stylów jako jed
 
 Najnowsza aktualizacja: dodane oryginalne logo oraz sześć różnych obrazów realizacji M-SPAW wyodrębnionych z dostarczonego zapisu Instagrama. Rzeczywiste zdjęcia zastąpiły wizualizacje w galerii i obrazach głównych. Numer 538 792 159 i e-mail firma.mspaw@gmail.com pochodzą z treści firmowego posta. Mapa używa adresu Niedźwiedź 217 potwierdzonego przez użytkownika. PDF i elementy interfejsu konta pozostają lokalnie, a publikacja kopiuje wyłącznie siedem zatwierdzonych plików JPG. Ceny i obsługa formularza w Pages nadal demonstracyjne.
 
-Podgląd opublikowany na wyraźne polecenie użytkownika: https://7eot4.github.io/CODEX-15-mspaw/ . Publiczne repozytorium: https://github.com/7eot4/CODEX-15-mspaw , gałąź `main`. Każdy push uruchamia testy i wdrożenie. Zasady kolejnych aktualizacji zapisano w AGENTS.md.
+Podgląd opublikowany na wyraźne polecenie użytkownika: https://7eot4.github.io/mspaw/ . Publiczne repozytorium: https://github.com/7eot4/mspaw , gałąź `main`. Każdy push uruchamia testy i wdrożenie. Zasady kolejnych aktualizacji zapisano w AGENTS.md.
 
 Zmiana wyglądu na prośbę użytkownika: nowoczesne konstrukcje, jasna strona, minimalizm i eleganckie balustrady. Nowy układ i oprawa, obrazy w dist/assets, pełne opisy w ASSETS.md. Kalkulator i ścieżka zapytania pozostają demonstracyjne. Kontrola graficzna strony w przeglądarce nadal niedostępna przez konektor (brak dostępnych kart); nie zastępuj testów funkcjonalnych deklaracją oceny wizualnej.
 
